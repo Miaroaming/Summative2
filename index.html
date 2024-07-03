@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Mapbox initialisation -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <!-- Fullpage CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.css"
+        integrity="sha512-AIwt5sjXSKDo4t0KSQ/eAuy43kQMc1hYtIKLxaFrHd26nQFzMo1FJdBIickVyGXnhm2xB2OOYBqMBgu3dBU4KA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- JQuery UI CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Filter Refresher</title>
+</head>
+
+<body>
+
+    <!-- Fullpage Required HTML -->
+    <div id="fullpage">
+        <div class="section">
+            <!-- Swiper -->
+            <!-- Slide 0 Homepage -->
+            <div class="slide" id="home-slide">
+                <img id="nzt-logo" src="./images/nz-tourism-logo.webp" alt="nz-tourism-logo">
+                <div class="home-text">
+                    <h2>Welcome to North Island <br> Accommodation!</h2>
+                    <h3>Where you can stay near the most popular beaches</h3>
+                </div>
+                <div class="button-div">
+                    <button id="homeButton">Find your Ideal Accommodation <i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <!-- Slide 1 Filter page-->
+            <div class="slide" id="filter-slide">
+                <div class="arrow-header">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <h2>Filter My Rooms</h2>
+                </div>
+
+                <form class="filter-container">
+
+                    <div class="filter-cont-half">
+                        <!-- Location Filter -->
+                        <div class="filter">
+                            <label for="location">Location:</label>
+                            <select name="location" id="location" class="full-width-select">
+                                <option value="">Any</option>
+                                <option value="Hot Water Beach">Hot Water Beach</option>
+                                <option value="Piha Beach">Piha Beach</option>
+                                <option value="Mount Maunganui Beach">Mount Maunganui Beach</option>
+                                <option value="Cathedral Cove">Cathedral Cove</option>
+                                <option value="Ninety Mile Beach">Ninety Mile Beach</option>
+                            </select>
+                        </div>
+
+                        <!-- Type of Accommodation -->
+                        <div class="filter">
+                            <label for="accom">Type of Accom:</label>
+                            <select name="accom" id="accom" class="full-width-select">
+                                <option value="">Any</option>
+                                <option value="Hotel">Hotel</option>
+                                <option value="Motel">Motel</option>
+                                <option value="House">House</option>
+                                <option value="Hostel">Hostel</option>
+                            </select>
+                        </div>
+
+                        <!-- Guests -->
+                        <div class="filter">
+                            <label for="guests">Guests:</label>
+                            <select name="guests" id="guests" class="full-width-select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+
+                        <!-- Bathrooms -->
+                        <div class="filter">
+                            <label for="bathrooms">Bathrooms:</label>
+                            <select name="bathrooms" id="bathrooms" class="full-width-select">
+                                <option value="Any">Any</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-cont-half">
+                        <!-- Meals -->
+                        <div class="filter">
+                            <label for="meals">Meals Included:</label>
+                            <select name="meals" id="meals" class="full-width-select">
+                                <option value="Any">Any</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="2">3+</option>
+                            </select>
+                        </div>
+
+                        <!-- Start Date -->
+                        <div class="filter">
+                            <label for="startDate">Start Date:</label>
+                            <input type="text" id="startDate" name="startDate" class="full-width-select" required>
+                        </div>
+
+                        <!-- End Date -->
+                        <div class="filter">
+                            <label for="endDate">End Date:</label>
+                            <input type="text" id="endDate" name="endDate" class="full-width-select" required>
+                        </div>
+
+                        <!-- Maximum price filter -->
+                        <div class="filter">
+                            <label for="price">Max. Price:</label>
+                            <select name="price" id="price" class="full-width-select">
+                                <option value="Any">Any</option>
+                                <option value="30">$30</option>
+                                <option value="90">$90</option>
+                                <option value="160">$160</option>
+                                <option value="250">$250</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="searchBtn">Your ideal accommodation <i class="fa-solid fa-arrow-down"></i></button>
+
+                    <div id="error-message"></div>
+
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Section 2 Slide 0 Populate page -->
+        <div class="section">
+            <div class="slide" id="results-slide">
+                <div class="arrow-header-populate">
+                    <i class="fa-solid fa-arrow-up" id="back-arrow-populate"></i>
+                    <h2>My Ideal Accommodation</h2>
+                </div>
+                <div id="results"></div>
+            </div>
+
+            <!-- Section 2 Slide 1 Description page -->
+            <div class="slide" id="selectedCardOutputSlide"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/378c9459f7.js" crossorigin="anonymous"></script>
+    <!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- JQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+    <!-- Fullpage JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.min.js"
+        integrity="sha512-yHHLi2ZwgtW9QNVZd0asqMyWGJ6Kx73ijKlGWSi3MwYFB5ZzOJV8wPtopKr6muHk5SERgF3OB/2dZj3StlI34w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./js/script.min.js"></script>
+</body>
+
+</html>

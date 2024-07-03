@@ -1,0 +1,743 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+// Home Page Slide
+#home-slide {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.4)), url("/images/beach2.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+
+    #nzt-logo {
+        position: fixed;
+        top: 5%;
+        left: 5.5%;
+        width: 200px;
+        height: auto;
+    }
+
+    .home-text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 12%;
+
+        h2 {
+            font-size: 6rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    .button-div {
+        position: fixed;
+        bottom: 18%;
+        left: 6%;
+
+        #homeButton {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #E46E00;
+            color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 20px;
+            padding: 15px;
+
+            .fa-arrow-right {
+                font-size: 1.8rem;
+                color: white;
+            }
+        }
+
+        #homeButton:hover {
+            background-color: #c45f00;
+            cursor: pointer;
+        }
+    }
+
+}
+
+// Filter Slide
+#filter-slide {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.4)), url("/images/beach2.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .arrow-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: 5%;
+
+        .fa-arrow-left {
+            color: white;
+            font-size: 3rem;
+            position: absolute;
+            right: 37%;
+        }
+
+        .fa-arrow-left:hover {
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 700;
+        }
+    }
+
+    .filter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #55A3A2;
+        width: 1000px;
+        height: 400px;
+        border-radius: 25px;
+        color: white;
+        font-size: 1.3rem;
+
+        .filter-cont-half {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-bottom: 5%;
+
+            .filter {
+                display: flex;
+                flex-direction: column;
+
+                select,
+                input {
+                    background-color: #195A59;
+                    border-radius: 20px;
+                    color: white;
+                    padding: 5px;
+                    border: none;
+                    font-size: 1.2rem;
+                    width: 200px;
+                }
+            }
+        }
+
+        #searchBtn {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #E46E00;
+            color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 20px;
+            padding: 15px;
+
+            .fa-arrow-down {
+                font-size: 1.8rem;
+                color: white;
+            }
+        }
+
+        #searchBtn:hover {
+            background-color: #c45f00;
+            cursor: pointer;
+        }
+    }
+}
+
+// Populated Property Card Slide
+#results-slide {
+    background-color: #195A59;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    .arrow-header-populate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: 1%;
+        margin-top: 2%;
+
+        #back-arrow-populate {
+            color: white;
+            font-size: 3rem;
+            position: absolute;
+            left: 7%;
+        }
+
+        #back-arrow-populate:hover {
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 700;
+        }
+    }
+
+    #results {
+        width: 98%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 30px 60px 120px 60px;
+
+        .no-results {
+            text-align: center;
+            color: white;
+            grid-column: 1/-1;
+            font-size: 20px;
+        }
+
+        .property {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+
+            .swiper {
+                width: 100%;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                height: 250px;
+
+                .property-image {
+                    width: 100%;
+                    object-fit: cover;
+                    height: 250px;
+                }
+
+                .swiper-pagination {
+                    padding: 4px;
+                    background: rgba(141, 66, 0, 0.4);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                }
+
+                .swiper-pagination-bullet {
+                    background: antiquewhite;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .property-details {
+                display: flex;
+                flex-direction: column;
+                padding: 16px;
+
+                h2 {
+                    margin: 5px 0;
+                    font-weight: 700;
+                    font-size: 25px;
+                    color: #195A59;
+                }
+
+                #price {
+                    color: #E46E00;
+                    font-weight: 900;
+                    font-size: 22px;
+                }
+
+                p {
+                    font-weight: 600;
+                    font-size: 18px;
+                    color: #195A59;
+                }
+
+                .more-details {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    margin: 6px 0;
+                    color: #195A59;
+
+                    .property-amenities {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 20px;
+                    }
+                }
+
+                .read-more {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0px 13px;
+                    margin-top: 10px;
+                    width: 95%;
+                    height: 50px;
+                    background-color: #E46E00;
+                    border: none;
+                    color: white;
+                    border-radius: 15px;
+                    font-size: 20px;
+                }
+
+                .read-more:hover {
+                    cursor: pointer;
+                    background-color: #c45f00;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+// Property Description Slide
+#selectedCardOutputSlide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fp-overflow {
+        background-color: #195A59;
+
+        .selected-cont {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .selected-details {
+                width: 80%;
+
+                #arrow-title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    margin-bottom: 1%;
+                    margin-top: 2%;
+
+                    #back-arrow-location {
+                        color: white;
+                        font-size: 3rem;
+                        position: absolute;
+                        right: 44%;
+                    }
+
+                    #back-arrow-location:hover {
+                        cursor: pointer;
+                    }
+
+                    h3 {
+                        text-align: center;
+                        font-size: 3.5rem;
+                        color: white;
+                        font-weight: 700;
+                    }
+                }
+
+                .img-text {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 30px;
+                    font-size: 20px;
+                    color: white;
+
+                    img {
+                        width: 40%;
+                        border-radius: 20px;
+                    }
+
+                    .text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 38px;
+
+                        .fa-user-group,
+                        .fa-shower {
+                            font-size: 40px;
+                            color: #55A3A2;
+                            margin-right: 10px;
+                        }
+
+                        .price-button {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            p {
+                                font-size: 35px;
+                                color: #ffffff;
+                                font-weight: 800;
+                            }
+
+                            button {
+                                background-color: #E46E00;
+                                border-radius: 15px;
+                                border: none;
+                                padding: 12px;
+                                font-size: 20px;
+                                color: white;
+                            }
+
+                            button:hover {
+                                background-color: #c45f00;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .more-amenities {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 30px;
+
+                            .fa-utensils,
+                            .fa-wifi,
+                            .fa-person-breastfeeding {
+                                font-size: 40px;
+                                color: #55A3A2;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Meal pricing calculator
+            .calculator {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                gap: 3%;
+                background-color: #55A3A2;
+                padding: 25px;
+                border-radius: 20px;
+                margin-top: 25px;
+                width: 80%;
+
+                h2 {
+                    color: white;
+                    font-weight: 400;
+                }
+
+                .meal {
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 20px;
+                    gap: 5px;
+                    align-items: center;
+
+                    .fa-bowl-food,
+                    .fa-drumstick-bite,
+                    .fa-shrimp {
+                        color: #195A59;
+                        font-size: 45px;
+                    }
+
+                    #breakfastCheckbox,
+                    #lunchCheckbox,
+                    #dinnerCheckbox {
+                        width: 30px;
+                        height: 30px;
+                        background-color: #E46E00;
+                        border-radius: 15px;
+                    }
+
+                    input:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                #total-button {
+                    background-color: #E46E00;
+                    border-radius: 15px;
+                    border: none;
+                    color: white;
+                    padding: 12px;
+                    font-size: 20px;
+                }
+
+                #total-button:hover {
+                    background-color: #c45f00;
+                    cursor: pointer;
+                }
+            }
+
+            // MAPBOX
+            #map {
+                width: 80%;
+                height: 400px;
+                border-radius: 20px;
+                margin-bottom: 30px;
+
+                .marker {
+                    width: 24px;
+                    height: 24px;
+                    background-color: #E46E00;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                .marker img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                color: white;
+                justify-content: flex-start;
+                margin-top: 30px;
+                margin-bottom: 8px;
+                font-weight: 400;
+            }
+        }
+
+    }
+}
+
+// Media query for tablet
+@media screen and (max-width: 768px) {
+    #home-slide {
+        #nzt-logo {
+            width: 120px;
+        }
+
+        .home-text {
+            h2 {
+                font-size: 4rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    #filter-slide {
+        .arrow-header {
+            h2 {
+                font-size: 3rem;
+            }
+
+            .fa-arrow-left {
+                right: 42%;
+            }
+        }
+
+        .filter-container {
+            width: 700px;
+            font-size: 18px;
+
+            .filter-cont-half {
+                gap: 10px;
+
+                .filter {
+
+                    select,
+                    input {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+
+    #results-slide {
+        .arrow-header-populate {
+            h2 {
+                font-size: 3rem;
+                margin-top: 2%;
+            }
+
+            #back-arrow-populate {
+                left: 2%;
+            }
+        }
+
+        #results {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 20px 30px 120px 60px;
+        }
+    }
+
+    #selectedCardOutputSlide {
+        .fp-overflow {
+            .selected-cont {
+                flex-direction: column;
+    
+                .selected-details {
+                    flex-direction: column;
+                    #arrow-title {
+                        h3 {
+                            font-size: 3rem;
+                        }
+                    }
+    
+                    .img-text {
+                        flex-direction: column;
+                        align-items: center;
+    
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+                .calculator {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+    // Media query for mobile
+    @media screen and (max-width: 425px) {
+
+        #home-slide {
+            #nzt-logo {
+                width: 120px;
+                left: 2%;
+            }
+
+            .home-text {
+                margin-left: 4%;
+
+                h2 {
+                    font-size: 3rem;
+                }
+
+                h3 {
+                    margin-top: 25px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .button-div {
+                left: 2%;
+            }
+        }
+
+        #filter-slide {
+            .arrow-header {
+                h2 {
+                    font-size: 2rem;
+                }
+
+                .fa-arrow-left {
+                    right: 42%;
+                    font-size: 2rem;
+                }
+            }
+
+            .filter-container {
+                width: 400px;
+                font-size: 20px;
+                height: auto;
+                padding-top: 25px;
+                padding-bottom: 25px;
+
+                .filter-cont-half {
+                    gap: 10px;
+                    flex-direction: column;
+
+                    .filter {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 22px;
+
+                        select,
+                        input {
+                            width: 180px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #results-slide {
+            .arrow-header-populate {
+                h2 {
+                    font-size: 2.5rem;
+                    margin-top: 2%;
+                }
+
+                #back-arrow-populate {
+                    left: 2%;
+                }
+            }
+
+            #results {
+                grid-template-columns: repeat(1, 1fr);
+                padding: 20px 30px 120px 60px;
+            }
+        }
+
+        #selectedCardOutputSlide {
+            .selected-details {
+                #arrow-title {
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                }
+
+                .img-text {
+                    flex-direction: column;
+                    align-items: center;
+
+                    .text {
+                        .price-button {
+                            height: auto;
+
+                            p {
+                                font-size: 1.8rem;
+                            }
+                        }
+
+                        p {
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
